@@ -14,6 +14,7 @@ var winCount = 0;
 var hasStartedGame = false;
 var letterHistory = [];
 var emptyWord;
+var gameWord;
 
 // Variable references to hold HTML using .textContent
 var underscoreSetup = document.getElementById( "underscore-setup" );
@@ -26,7 +27,8 @@ underscoreSetup.textContent = "_ _ _ _ _ _";
 letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
 guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
 
-function createEmptyWord(gameWord) {
+function createEmptyWord() {
+    gameWord = allGames[Math.floor(Math.random() * 5)];
     emptyWord = gameWord.slice();
     for ( var i = 0; i < emptyWord.length; i++ ) {
         emptyWord[i] = "_";
@@ -37,13 +39,8 @@ function reloadPage() {
     window.location.reload();
 }   
 
-var audio = document.querySelector("audio");
-
-
 document.onkeyup = function(event) {
     var userGuess = event.key;
-
-    audio.play();
 
     // Function for depleting guess attempts.
     function userTrys() {
@@ -112,7 +109,7 @@ document.onkeyup = function(event) {
 
 }
 
-createEmptyWord(gameRandom);
+createEmptyWord();
 
 // if guess amount reaches zero, end game
 // After a win or loss, a new game will appear to play with new word.
