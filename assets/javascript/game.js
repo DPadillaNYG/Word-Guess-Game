@@ -1,9 +1,9 @@
 // Each game represents  by a string of letters
-var gameOne = ["r", "e", "p", "l", "i", "c", "a", "n", "t", "s"];
+var gameOne = ["c", "y", "b", "o", "r", "g"];
 var gameTwo = ["m", "a", "t", "r", "i", "x"];
 var gameThree = ["s", "k", "y", "n", "e", "t"];
 var gameFour = ["r", "e", "k", "a", "l", "l"];
-var gameFive = ["d", "a", "f", "t", "p", "u", "n", "k"];
+var gameFive = ["l", "o", "o", "p", "e", "r"];
 
 var allGames = [gameOne, gameTwo, gameThree, gameFour, gameFive];
 var gameRandom = allGames[Math.floor(Math.random() * 5)];
@@ -16,12 +16,15 @@ var letterHistory = [];
 var emptyWord;
 
 // Variable references to hold HTML using .textContent
-var initiateGame = document.getElementById( "initiate-game" );
-var currentWord = document.getElementById( "current-word" );
 var underscoreSetup = document.getElementById( "underscore-setup" );
 var guessStat = document.getElementById( "guess-pool" );
 var letterStat = document.getElementById( "letters-guessed" );
 var winStat = document.getElementById( "win-count" );
+
+winStat.textContent = "WINS: " + winCount;
+underscoreSetup.textContent = "_ _ _ _ _ _";
+letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
+guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
 
 function createEmptyWord(gameWord) {
     emptyWord = gameWord.slice();
@@ -30,21 +33,12 @@ function createEmptyWord(gameWord) {
     }
 }
 
+function reloadPage() {
+    window.location.reload();
+}   
+
 document.onkeyup = function(event) {
     var userGuess = event.key;
-
-    // Initial Setup on first key press.
-    function htmlSetup() {
-        if ( !hasStartedGame ) {
-          initiateGame.textContent = "";
-          currentWord.textContent = "CURRENT WORD";
-          letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
-          winStat.textContent = "WINS: " + winCount;
-          hasStartedGame = true;
-     }
-    }
-
-    htmlSetup();
 
     // Function for depleting guess attempts.
     function userTrys() {
@@ -59,7 +53,7 @@ document.onkeyup = function(event) {
                      userGuess === "s" || userGuess === "t" || userGuess === "u" ||
                      userGuess === "v" || userGuess === "w" || userGuess === "x" ||
                      userGuess === "y" || userGuess === "z") {
-                    if ( guessAmount > 0 ) {
+                    if ( guessAmount > 1 ) {
                         guessAmount--;
                         guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
                     }
@@ -77,10 +71,10 @@ document.onkeyup = function(event) {
                     emptyWord[i] = gameWord[i];
                 }
             }
-            if (emptyWord.join() === gameWord.join()) {
-                winCount++;
-                winStat.textContent = "WINS: " + winCount;
-            }
+        }
+        if (emptyWord.join() === gameWord.join()) {
+            winCount++;
+            winStat.textContent = "WINS: " + winCount;
         }
         underscoreSetup.textContent = emptyWord.join(" ");
     }
@@ -110,15 +104,11 @@ document.onkeyup = function(event) {
 
     letterStats(gameRandom);
 
-    if ( gameRandom = allGames[0] ) {
-        var newDIV = document.createElement("<div>");
-        d
-    }
-
 }
 
 createEmptyWord(gameRandom);
 
-
 // if guess amount reaches zero, end game
 // After a win or loss, a new game will appear to play with new word.
+
+

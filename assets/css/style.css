@@ -85,7 +85,7 @@ p {
     align-self: center;
 }
 
-#letters-guessed {
+#letters-guessed, #initiate-game {
     font-size: 100%;
 }
 
