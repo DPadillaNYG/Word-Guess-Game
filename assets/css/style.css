@@ -42,6 +42,8 @@ h1{
 
 main {
     display: flex;
+    flex-direction: column;
+    position: relative;
     background-color: black;
     opacity: .9;
     width: 80%;
@@ -71,10 +73,24 @@ footer {
     align-self: center;
 }
 
-#javascript {
-    color: palevioletred;
-    font-family: 'Courier New', Courier, monospace;
+.javascript {
+    color: rgb(255, 132, 173);
+    font-family: Codystar, cursive;
     font-size: 30px;
     letter-spacing: 5px;
+}
+
+p {
+    line-height: 2;
     align-self: center;
+}
+
+#letters-guessed {
+    font-size: 100%;
+}
+
+#win-count {
+    position: absolute;
+    top: 0;
+    left: 2%;
 }
