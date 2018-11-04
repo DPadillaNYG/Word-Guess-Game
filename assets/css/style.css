@@ -1,17 +1,7 @@
+/* IN ORDER OF APPEARANCE */
+
 body {
     background: url(../images/CyberTile.jpg) repeat;
-}
-
-audio {
-    width: 25%;
-    bottom: 10%;
-    position: absolute;
-    opacity: .3;
-}
-
-.container {
-   box-sizing: border-box;
-   min-height: calc(100vh - 70px);
 }
 
 header {
@@ -40,6 +30,13 @@ h1{
     text-shadow: 5px 4px 3px rgb(0,193,188);
 }
 
+audio {
+    width: 25%;
+    bottom: 10%;
+    position: absolute;
+    opacity: .3;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -52,6 +49,17 @@ main {
     border-left: solid white 5px;
     border-right: solid white 5px;
     justify-content: center;
+}
+
+#win-count {
+    position: absolute;
+    top: 0;
+    left: 2%;
+}
+
+.container {
+    box-sizing: border-box;
+    min-height: calc(100vh - 70px); /* Sticky Footer */
 }
 
 footer {
@@ -73,6 +81,8 @@ footer {
     align-self: center;
 }
 
+/* GENERAL STYLING */
+
 .javascript {
     color: rgb(255, 132, 173);
     font-family: Codystar, cursive;
@@ -89,20 +99,14 @@ p {
     font-size: 100%;
 }
 
-#win-count {
-    position: absolute;
-    top: 0;
-    left: 2%;
-}
-
 /* Sweet Alert Customization Options */
+
 .swal-modal {
     background-color: black;
     border: 2px dotted rgb(0,193,188);
 }
 
 .swal-text {
-    /* padding: 17px; */
     color: rgb(0,193,188);
     font-family: 'Courier New', Courier, monospace;
     letter-spacing: 2px;
