@@ -78,16 +78,15 @@ document.onkeyup = function(event) {
     function userProgress() {   
         for ( var i = 0; i < gameWord.length; i++ ) {
             if ( userGuess === gameWord[i] ) {
-                if ( guessAmount > 0 ) {
+                if ( guessAmount > -1 ) {
                     emptyWord[i] = gameWord[i];
-                } else {
-                    resetStats();
                 }
             }
         }
         if (emptyWord.join() === gameWord.join()) {
             winCount++;
             winStat.textContent = "WINS: " + winCount;
+            swal('"As you no doubt have guessed I am ' + gameWord.join("").toUpperCase() + '"');
             resetStats();
         }
         underscoreSetup.textContent = emptyWord.join(" ");
@@ -120,5 +119,9 @@ document.onkeyup = function(event) {
 }
 
 resetWord();
+
+// swal('"The answer was ' + gameWord.join("").toUpperCase() +
+// '. All those letters will be lost in time...like tears in the rain."');
+// resetStats();
 
 

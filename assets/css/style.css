@@ -94,3 +94,36 @@ p {
     top: 0;
     left: 2%;
 }
+
+/* Sweet Alert Customization Options */
+.swal-modal {
+    background-color: black;
+    border: 2px dotted rgb(0,193,188);
+}
+
+.swal-text {
+    /* padding: 17px; */
+    color: rgb(0,193,188);
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+.swal-button {
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    border: 3px solid rgb(0,193,188);
+    color: rgb(0,193,188);
+}
+
+.swal-button:hover {
+    background-color: black!important;
+}
+
+.swal-footer {
+    text-align: center;
+}
