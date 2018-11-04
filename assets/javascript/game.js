@@ -121,8 +121,8 @@ document.onkeyup = function( event ) {
             winCount++;
             winStat.textContent = "WINS: " + winCount;
             isPlaying = false;
-            swal( '"As you no doubt have guessed I am ' + gameWord.join("").toUpperCase() 
-                 + '"' ).then( function() {
+            swal( '"What if I told you ' + gameWord.join("").toUpperCase() 
+                 + ' was correct."' ).then( function() {
                             isPlaying = true;
                         });
             resetStats();
