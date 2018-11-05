@@ -47,7 +47,7 @@ main {
     background-color: black;
     opacity: .9;
     width: 80%;
-    min-height: calc(100vh + 70px);
+    min-height: calc(70vh + 70px);
     margin: auto;
     border-left: solid white 5px;
     border-right: solid white 5px;
