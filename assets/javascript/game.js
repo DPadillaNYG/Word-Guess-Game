@@ -19,6 +19,10 @@ var allGames = [ gameOne, gameTwo, gameThree, gameFour,
 var cyberMusic = document.getElementById( "cybermusic" );
 var cityRain = document.getElementById( "cityrain" );
 
+// Activated when a win/loss condition has been met
+var cyberAlert = document.getElementById( "cyberalert" );
+    cyberAlert.volume = .8;
+
 // Global Variables
 var guessAmount = 15; // User record of guesses left
 var winCount = 0; // User record of wins
@@ -26,7 +30,7 @@ var letterHistory = []; // Letters guessed get pushed into this empty array
 var gameWord; // For storing randomized word
 var emptyWord; // For storing a duplicate of gameWord to manipulate in-game
 var isPlaying = true; // Flag variable created to block user input at win/loss alert box
-var isAnimated = true; // Flag variable to get png image to animate indefinitely
+var isAnimated = false; // Flag variable to get png image to animate indefinitely
 
 // Variable references to hold HTML elements (refer to children of <main> in index.html)
 var underscoreSetup = document.getElementById( "underscore-setup" );
@@ -54,6 +58,7 @@ function resetWord() {
 // This function reinitializes the user stats & word for the next game
 function resetStats() {
     resetWord();
+    cyberAlert.play();
     guessAmount = 15;
     guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
     letterHistory = [];
@@ -74,13 +79,14 @@ function losingGame() {
 }
 
 document.onkeyup = function( event ) {
+    
     // Establishing user input
     var userGuess = event.key;
 
     // Converts image into gif indefinitely using a flag variable upon user click
     function solidifyGif() {
-        if ( isAnimated ) {
-            isAnimated = false;
+        if ( !isAnimated ) {
+            isAnimated = true;
             document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
         }
     }
