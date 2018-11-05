@@ -160,8 +160,8 @@ document.onkeyup = function( event ) {
                      userGuess === "s" || userGuess === "t" || userGuess === "u" ||
                      userGuess === "v" || userGuess === "w" || userGuess === "x" ||
                      userGuess === "y" || userGuess === "z" ) {
-                    startRain();
                     solidifyGif();
+                    startRain();
                     letterHistory.push( userGuess );
                     letterStat.textContent = "LETTERS GUESSED: " + letterHistory.sort().join(", ");
                 }
