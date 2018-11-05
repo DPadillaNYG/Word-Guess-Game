@@ -47,7 +47,7 @@ main {
     background-color: black;
     opacity: .9;
     width: 80%;
-    height: 500px;
+    height: 100vh;
     margin: auto;
     border-left: solid white 5px;
     border-right: solid white 5px;
@@ -95,6 +95,10 @@ footer {
 p {
     line-height: 2;
     align-self: center;
+}
+
+em {
+    font-style: italic;
 }
 
 #letters-guessed, #initiate-game {
