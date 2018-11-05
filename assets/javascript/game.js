@@ -31,6 +31,7 @@ var gameWord; // For storing randomized word
 var emptyWord; // For storing a duplicate of gameWord to manipulate in-game
 var isPlaying = true; // Flag variable created to block user input at win/loss alert box
 var isAnimated = false; // Flag variable to get png image to animate indefinitely
+var isSongPlaying = false; // Flag variable to start music on click only
 
 // Variable references to hold HTML elements (refer to children of <main> in index.html)
 var underscoreSetup = document.getElementById( "underscore-setup" );
@@ -89,6 +90,13 @@ document.onkeyup = function( event ) {
             isAnimated = true;
             document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
         }
+    }
+
+    // Starts music upon user click
+    function startTune() {
+        isSongPlaying = true;
+        cyberMusic.play();
+        cityRain.play();
     }
 
     // Depletes guess attempts ( alphabet-check to ignore other key strokes )
@@ -158,8 +166,7 @@ document.onkeyup = function( event ) {
     }
 
     // Function calls! 
-    cyberMusic.play();
-    cityRain.play();
+    startTune();
     solidifyGif();
     userTrys();
     lettersUsed();
