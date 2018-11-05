@@ -79,13 +79,6 @@ function losingGame() {
     }
 }
 
-// Starts music upon user click
-function startTune() {
-    isSongPlaying = true;
-    cyberMusic.play();
-    cityRain.play();
-}
-
 document.onkeyup = function( event ) {
     
     // Establishing user input
@@ -98,6 +91,13 @@ document.onkeyup = function( event ) {
             document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
         }
     }
+
+    // Starts music upon user click
+    function startTune() {
+        isSongPlaying = true;
+        cyberMusic.play();
+        cityRain.play();
+    }    
 
     // Depletes guess attempts ( alphabet-check to ignore other key strokes )
     function userTrys() {
@@ -158,6 +158,8 @@ document.onkeyup = function( event ) {
                      userGuess === "s" || userGuess === "t" || userGuess === "u" ||
                      userGuess === "v" || userGuess === "w" || userGuess === "x" ||
                      userGuess === "y" || userGuess === "z" ) {
+                    startTune();
+                    solidifyGif();
                     letterHistory.push( userGuess );
                     letterStat.textContent = "LETTERS GUESSED: " + letterHistory.sort().join(", ");
                 }
@@ -166,8 +168,6 @@ document.onkeyup = function( event ) {
     }
 
     // Function calls! 
-    startTune();
-    solidifyGif();
     userTrys();
     lettersUsed();
     userProgress();
