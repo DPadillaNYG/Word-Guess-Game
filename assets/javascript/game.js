@@ -51,7 +51,15 @@ function startTune() {
     cityRain.play();
 } 
 
-// This function randomizes the word being played
+// Converts image into gif upon user click
+function solidifyGif() {
+    if ( !isAnimated ) {
+        isAnimated = true;
+        document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
+    }
+} 
+
+// Randomizes the word being played
 function resetWord() {
     gameWord = allGames[ Math.floor( Math.random() * 10 ) ];
     emptyWord = gameWord.slice();
@@ -63,7 +71,7 @@ function resetWord() {
     underscoreSetup.textContent = emptyWord.join(" ");
 } 
 
-// This function reinitializes the user stats & word for the next game
+// Reinitializes the user stats & word for the next game
 function resetStats() {
     resetWord();
     cyberAlert.play();
@@ -73,7 +81,7 @@ function resetStats() {
     letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
 }
 
-// This function ends the game when the user has lost ( kinda "hacky" with UserProgress() function )
+// Ends the game when the user has lost ( kinda "hacky" with UserProgress() function )
 function losingGame() {
     if ( guessAmount === 0 ) {
         isPlaying = false;
@@ -89,15 +97,7 @@ function losingGame() {
 document.onkeyup = function( event ) {
     
     // Establishing user input
-    var userGuess = event.key;
-
-    // Converts image into gif indefinitely using a flag variable upon user click
-    function solidifyGif() {
-        if ( !isAnimated ) {
-            isAnimated = true;
-            document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
-        }
-    }   
+    var userGuess = event.key;  
 
     // Depletes guess attempts ( alphabet-check to ignore other key strokes )
     function userTrys() {
