@@ -1,11 +1,11 @@
 // For the sake of grading and understanding the logic, I have attached comments below:
 
 // Each game represented by a string of letters
-var gameOne = ["o", "a", "s", "i", "s"];
+var gameOne = ["a", "n", "t", "i", "h", "e", "r", "o"];
 var gameTwo = ["m", "a", "t", "r", "i", "x"];
 var gameThree = ["s", "k", "y", "n", "e", "t"];
 var gameFour = ["r", "e", "k", "a", "l", "l"];
-var gameFive = ["l", "o", "o", "p", "e", "r"];
+var gameFive = ["d", "r", "e", "d", "d"];
 var gameSix = ["r", "e", "p", "l", "i", "c", "a", "n", "t", "s"];
 var gameSeven = ["t", "r", "o", "n"];
 var gameEight = ["d", "a", "f", "t", "p", "u", "n", "k"];
