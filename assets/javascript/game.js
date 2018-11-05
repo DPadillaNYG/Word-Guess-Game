@@ -19,6 +19,8 @@ var allGames = [ gameOne, gameTwo, gameThree, gameFour,
 var cyberMusic = document.getElementById( "cybermusic" );
 var cityRain = document.getElementById( "cityrain" );
 
+cyberMusic.play(); // Plays music immediately & indefinitely
+
 // Activated when a win/loss condition has been met
 var cyberAlert = document.getElementById( "cyberalert" );
     cyberAlert.volume = .8;
@@ -31,7 +33,7 @@ var gameWord; // For storing randomized word
 var emptyWord; // For storing a duplicate of gameWord to manipulate in-game
 var isPlaying = true; // Flag variable created to block user input at win/loss alert box
 var isAnimated = false; // Flag variable to get png image to animate indefinitely
-var isSongPlaying = false; // Flag variable to start music on click only
+var isRaining = false; // Flag variable to start rain on click only
 
 // Variable references to hold HTML elements (refer to children of <main> in index.html)
 var underscoreSetup = document.getElementById( "underscore-setup" );
@@ -44,10 +46,9 @@ winStat.textContent = "WINS: " + winCount;
 letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
 guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
 
-// Starts music upon user click
-function startTune() {
-    isSongPlaying = true;
-    cyberMusic.play();
+// Starts rain upon user click
+function startRain() {
+    isRaining = true;
     cityRain.play();
 } 
 
@@ -94,6 +95,7 @@ function losingGame() {
     }
 }
 
+// All functions utilizing "userGuess" are below
 document.onkeyup = function( event ) {
     
     // Establishing user input
@@ -158,7 +160,7 @@ document.onkeyup = function( event ) {
                      userGuess === "s" || userGuess === "t" || userGuess === "u" ||
                      userGuess === "v" || userGuess === "w" || userGuess === "x" ||
                      userGuess === "y" || userGuess === "z" ) {
-                    startTune();
+                    startRain();
                     solidifyGif();
                     letterHistory.push( userGuess );
                     letterStat.textContent = "LETTERS GUESSED: " + letterHistory.sort().join(", ");
