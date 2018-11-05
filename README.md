@@ -17,7 +17,7 @@ I learned on the fly:
 * .then()
 * .sort()
 
-**Also refer to comments within game.js to see how I utilized:**
+**Also, feel free to refer to the comments within game.js to see how I utilized:**
 * functions
 * global variables
 * local variables
