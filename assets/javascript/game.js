@@ -44,6 +44,13 @@ winStat.textContent = "WINS: " + winCount;
 letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
 guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
 
+// Starts music upon user click
+function startTune() {
+    isSongPlaying = true;
+    cyberMusic.play();
+    cityRain.play();
+} 
+
 // This function randomizes the word being played
 function resetWord() {
     gameWord = allGames[ Math.floor( Math.random() * 10 ) ];
@@ -90,14 +97,7 @@ document.onkeyup = function( event ) {
             isAnimated = true;
             document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
         }
-    }
-
-    // Starts music upon user click
-    function startTune() {
-        isSongPlaying = true;
-        cyberMusic.play();
-        cityRain.play();
-    }    
+    }   
 
     // Depletes guess attempts ( alphabet-check to ignore other key strokes )
     function userTrys() {
