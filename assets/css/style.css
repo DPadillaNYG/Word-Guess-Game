@@ -1,4 +1,7 @@
 /* IN ORDER OF APPEARANCE */
+html {
+    font-size: 16px;
+}
 
 body {
     background: url(../images/CyberTile.jpg) repeat;
@@ -22,7 +25,7 @@ header {
 }
 
 h1{
-    font-size: 75px;
+    font-size: 4.6875rem;
     font-family: 'Megrim', cursive;
     color: white;
     font-weight: bold;
@@ -76,7 +79,7 @@ footer {
     color: rgb(0,193,188);
     font-family: 'Courier New', Courier, monospace;
     letter-spacing: 3px;
-    font-size: 20px;
+    font-size: 1.25rem;
     opacity: .5;
     align-self: center;
 }
@@ -86,7 +89,7 @@ footer {
 .javascript {
     color: rgb(255, 132, 173);
     font-family: Codystar, cursive;
-    font-size: 30px;
+    font-size: 1.875rem;
     letter-spacing: 5px;
 }
 
@@ -96,7 +99,9 @@ p {
 }
 
 #letters-guessed, #initiate-game {
-    font-size: 100%;
+    font-size: 1rem;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* Sweet Alert Customization Options */
@@ -131,3 +136,49 @@ p {
 .swal-footer {
     text-align: center;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size: 5px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    html {
+        font-size: 6.5px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    html {
+        font-size: 7.5px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    html {
+        font-size: 10.5px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 12.5px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 19px;
+    }
+}
+
+
