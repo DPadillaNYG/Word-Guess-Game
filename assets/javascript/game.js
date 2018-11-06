@@ -62,7 +62,7 @@ function solidifyGif() {
 
 // Randomizes the word being played
 function resetWord() {
-    gameWord = allGames[ Math.floor( Math.random() * 10 ) ];
+    gameWord = allGames[ Math.floor( Math.random() * allGames.length ) ];
     emptyWord = gameWord.slice();
 
     for ( var i = 0; i < emptyWord.length; i++ ) {
@@ -72,10 +72,16 @@ function resetWord() {
     underscoreSetup.textContent = emptyWord.join(" ");
 } 
 
-// Reinitializes the user stats & word for the next game
+// Reinitializes the user stats & starts a new word for the next game
 function resetStats() {
-    resetWord();
     cyberAlert.play();
+    allGames.splice(allGames.indexOf(gameWord), 1);
+    if ( allGames.length === 0 ) {
+        allGames = [ gameOne, gameTwo, gameThree, gameFour, 
+            gameFive, gameSix, gameSeven, gameEight, 
+            gameNine, gameTen ];
+    }
+    resetWord();
     guessAmount = 15;
     guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
     letterHistory = [];
