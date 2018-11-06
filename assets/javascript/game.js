@@ -54,14 +54,17 @@ function startRain() {
 
 // Converts image into gif upon user click
 function solidifyGif() {
+
     if ( !isAnimated ) {
         isAnimated = true;
         document.getElementById("cyber-city").src="assets/images/CyberPunk.gif";
     }
+
 } 
 
 // Randomizes the word being played
 function resetWord() {
+
     gameWord = allGames[ Math.floor( Math.random() * allGames.length ) ];
     emptyWord = gameWord.slice();
 
@@ -70,35 +73,51 @@ function resetWord() {
     }
 
     underscoreSetup.textContent = emptyWord.join(" ");
+
 } 
 
 // Reinitializes the user stats & starts a new word for the next game
 function resetStats() {
+
     cyberAlert.play();
     allGames.splice(allGames.indexOf(gameWord), 1);
+
     if ( allGames.length === 0 ) {
         allGames = [ gameOne, gameTwo, gameThree, gameFour, 
             gameFive, gameSix, gameSeven, gameEight, 
             gameNine, gameTen ];
+        
+        cyberAlert.play();
+        swal( 'Everything that has a beginning, has an end. You scored ' + winCount + ' out of 10 correctly.' )
+            .then( function() {
+                isPlaying = true;
+        });
+
+        winCount = 0;
+        winStat.textContent = "WINS: " + winCount;
     }
+
     resetWord();
     guessAmount = 15;
     guessStat.textContent = "GUESSES REMAINING: " + guessAmount;
     letterHistory = [];
     letterStat.textContent = "LETTERS GUESSED: " + letterHistory;
+
 }
 
 // Ends the game when the user has lost ( kinda "hacky" with UserProgress() function )
 function losingGame() {
+
     if ( guessAmount === 0 ) {
         isPlaying = false;
         swal( '"The answer was ' + gameWord.join("").toUpperCase() +
         '. All those letters will be lost in time...like tears in the rain."' )
-            .then( function() {
-                isPlaying = true;
-            });
+        .then( function() {
+            isPlaying = true;
+        });            
         resetStats();
     }
+
 }
 
 // All functions utilizing "userGuess" are below
@@ -109,6 +128,7 @@ document.onkeyup = function( event ) {
 
     // Depletes guess attempts ( alphabet-check to ignore other key strokes )
     function userTrys() {
+
         if ( userGuess && isPlaying ) {
             if ( letterHistory.indexOf( userGuess ) === -1 ) {
                 if ( userGuess === "a" || userGuess === "b" || userGuess === "c" ||
@@ -127,10 +147,12 @@ document.onkeyup = function( event ) {
                 }
             }
         }
+
     }
 
     // Tracks user input while refreshing user progress and also checks for win conditions
-    function userProgress() {   
+    function userProgress() { 
+
         for ( var i = 0; i < gameWord.length; i++ ) {
             if ( userGuess === gameWord[i] && isPlaying ) {
                 if ( guessAmount > -1 ) {
@@ -144,17 +166,19 @@ document.onkeyup = function( event ) {
             winStat.textContent = "WINS: " + winCount;
             isPlaying = false;
             swal( '"What if I told you ' + gameWord.join("").toUpperCase() 
-                 + ' was correct."' ).then( function() {
-                            isPlaying = true;
-                        });
+                    + ' was correct."' ).then( function() {
+                isPlaying = true;
+            });
             resetStats();
         }
 
         underscoreSetup.textContent = emptyWord.join(" ");
+
     }
 
     // Keeps track of letters guessed ( alphabet-check to ignore other key strokes )
     function lettersUsed() {
+
         if ( userGuess && isPlaying ) {
             if ( letterHistory.indexOf( userGuess ) === -1 ) {
                 if ( userGuess === "a" || userGuess === "b" || userGuess === "c" ||
@@ -173,6 +197,7 @@ document.onkeyup = function( event ) {
                 }
             }
         }
+        
     }
 
     // Function calls! 
